@@ -145,10 +145,10 @@ layout = [
     [sg.Text('▶ 使用するオンライン会議アプリを選択：'), sg.Combo(('Google Meet', 'Zoom'), default_value='Google Meet', key='-app-'), sg.Button('更新', key='-refresh-')],
     [sg.Text('Google Meet の場合は、スクリーンショット時に Chrome のズームを 200% にするのがオススメです。', key='-caution-')],
     [sg.Text('▼ アップロード画像(1) 参加者数アイコン'), sg.Text('※ ファイルパスに日本語を含まないようにしてください', text_color='#ff0000')],
-    [sg.Image(filename=resource_path('406-203.png'), size=(406,203), key='-img1-')],
+    [sg.Image(filename=resource_path('images/406-203.png'), size=(406,203), key='-img1-')],
     [sg.Input(), sg.FileBrowse('ファイルを選択', key='inputFilePath1')],
     [sg.Text('▼ アップロード画像(2) 退出ボタン'), sg.Text('※ ファイルパスに日本語を含まないようにしてください', text_color='#ff0000')],
-    [sg.Image(filename=resource_path('239-203.png'), size=(239,203), key='-img2-')],
+    [sg.Image(filename=resource_path('images/239-203.png'), size=(239,203), key='-img2-')],
     [sg.Input(), sg.FileBrowse('ファイルを選択', key='inputFilePath2')],
     [sg.Text('▶ ウィンドウ不透明度(0=非表示,1=完全に表示)：'), sg.Slider((0.0,1.0), default_value=1.0, resolution=0.1, orientation='h', key='-alpha-')],
     [sg.Text('▶ 自動退出する条件を選択：'), sg.Text('最大参加人数の'), sg.Combo(('1/2未満 ','1/3未満 '), default_value='1/2未満 ', key='-denominator-'), sg.Text('が'), sg.Combo(('1回連続 ','2回連続 ','3回連続 '), default_value='2回連続 ', key='-times-')],
@@ -156,7 +156,7 @@ layout = [
 ]
 
 # ステップ4. ウィンドウの生成
-window = sg.Window('SkiMee 【 自動退出支援プログラム 】', layout=layout, font='メイリオ', icon=resource_path('SkiMee.ico'))
+window = sg.Window('SkiMee 【 自動退出支援プログラム 】', layout=layout, font='メイリオ', icon=resource_path('images/SkiMee.ico'))
 
 # ステップ5. イベントループ
 while True:
@@ -165,12 +165,12 @@ while True:
     if event == '-refresh-':
         if values['-app-'] == 'Zoom':
             window['-caution-'].update('Zoom の場合は、全画面表示にするのがオススメです。')
-            window['-img1-'].update(filename=resource_path('591-203.png'))
-            window['-img2-'].update(filename=resource_path('332-203.png'))
+            window['-img1-'].update(filename=resource_path('images/591-203.png'))
+            window['-img2-'].update(filename=resource_path('images/332-203.png'))
         elif values['-app-'] == 'Google Meet':
             window['-caution-'].update('Google Meet の場合は、スクリーンショット時に Chrome のズームを 200% にするのがオススメです。')
-            window['-img1-'].update(filename=resource_path('406-203.png'))
-            window['-img2-'].update(filename=resource_path('239-203.png'))
+            window['-img1-'].update(filename=resource_path('images/406-203.png'))
+            window['-img2-'].update(filename=resource_path('images/239-203.png'))
 
     if event == sg.WIN_CLOSED:
         break
