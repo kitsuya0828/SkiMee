@@ -1,0 +1,8 @@
+matplotlib
+numpy
+opencv-python
+Pillow
+PyAutoGUI
+pyinstaller
+pyocr
+PySimpleGUI
